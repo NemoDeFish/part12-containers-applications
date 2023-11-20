@@ -1,0 +1,10 @@
+Script started on 2023-11-11 11:57:33+08:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="104" LINES="20"]
+[?2004h]0;nemodefish@limsiyong: ~/Repositories/part12-containers-applications[01;32mnemodefish@limsiyong[00m:[01;34m~/Repositories/part12-containers-applications[00m$ docker container run -it ubuntu bash [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Kh
+[?2004l[?2004h]0;root@990136bae9ae: /root@990136bae9ae:/# mkdir /usr/src/app
+[?2004l[?2004h]0;root@990136bae9ae: /root@990136bae9ae:/# touch /usr/src/app/index.js
+[?2004l[?2004h]0;root@990136bae9ae: /root@990136bae9ae:/# [Kexit
+[?2004lexit
+[?2004h]0;nemodefish@limsiyong: ~/Repositories/part12-containers-applications[01;32mnemodefish@limsiyong[00m:[01;34m~/Repositories/part12-containers-applications[00m$ exit
+[?2004lexit
+
+Script done on 2023-11-11 11:58:07+08:00 [COMMAND_EXIT_CODE="0"]

@@ -1,0 +1,15 @@
+services:
+  app:
+    image: bloglist-frontend
+    volumes:
+      - ./frontend:/usr/src/app
+    container_name: bloglist-frontend
+    ports:
+      - 8080:80
+  server:
+    image: bloglist-backend
+    volumes:
+      - ./backend:/usr/src/app
+    container_name: bloglist-backend
+    ports:
+      - 3003:3003

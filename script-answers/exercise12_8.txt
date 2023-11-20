@@ -1,0 +1,73 @@
+Script started on 2023-11-12 01:11:03+08:00 [TERM="xterm-256color" TTY="/dev/pts/2" COLUMNS="30" LINES="20"]
+[?2004h]0;nemodefish@limsiyong: ~/Repositories/part12-containers-applications[01;32mnemodefish@limsiyong[00m:[01;34m~/Repositories/part12-containers-applications[00m$ docker exec -it todo-b ackend-[K[A[A[A]0;nemodefish@limsiyong: ~/Repositories/part12-containers-applications[01;32mnemodefish@limsiyong[00m:[01;34m~/Repositories/part12-containers-applications[00m$ docker ex
+ec -it todo-backend-mongo-1 bash
+[?2004l[?2004hroot@8b2b351f479d:/# [Kroot@8b2b351f479d:/# mongosh - u root -p example 
+[?2004l]0;mongosh mongodb://<credentials>@127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000Current Mongosh Log ID:	654fb5d832553286d449e2c7
+Connecting to:		[1m[32mmongodb://<credentials>@127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.0.1[0m
+Using MongoDB:		7.0.2
+[1m[33mUsing Mongosh[0m:		2.0.1
+
+For mongosh info see: [1mhttps://docs.mongodb.com/mongodb-shell/[0m
+
+
+To help improve our products, anonymous usage data is collected and sent to MongoDB periodically (https://www.mongodb.com/legal/privacy-policy).
+You can opt-out by running the [1mdisableTelemetry()[0m command.
+
+[1G[0J [1G[1m[33m------[0m
+   [1m[33mThe server generated these startup warnings when booting[0m
+   2023-11-11T16:58:48.175+00:00: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem
+   2023-11-11T16:58:48.937+00:00: vm.max_map_count is too low
+[1m[33m------[0m
+
+[1G[0Jtest> [7G[1G[0Jtest> [7G[1G[0Jtest> [7Gshow dbs
+[1madmin[0m         100.00 KiB
+[1mconfig[0m         60.00 KiB
+[1mlocal[0m          72.00 KiB
+[1mthe_database[0m   40.00 KiB
+[1G[0Jtest> [7Guse the_database
+switched to db the_database
+[1G[0Jthe_database> [15Gshow collection[1G[0Jthe_database> show collections [1G
+[1mtodos[0m
+[1G[0Jthe_database> [15Gdb.todos.find({[1G[0Jthe_database> db.todos.find({} [1G)
+[
+  {
+    _id: ObjectId("654fb2c75931cdc1bcf8b80e"),
+    text: [32m'Write code'[39m,
+    done: [33mtrue[39m
+  },
+  {
+    _id: ObjectId("654fb2c75931cdc1bcf8b80f"),
+    text: [32m'Learn about containers'[39m,
+    done: [33mfalse[39m
+  }
+]
+[1G[0Jthe_database> [15Gdb.todos.insert[1G[0Jthe_database> db.todos.insertO [1Gne({text[33mtext[39m:[32m"[39m[32mI[39m[32mn[39m[32mc[39m[32mr[39m[32me[39m[32ma[39m[32ms[39m[32me[39m [32mt[39m[32mh[39m[32me[39m [32mn[39m[32mu[39m[32mm[39m[32mb[39m[32me[39m[32mr[39m[1A[1G[0Jthe_database> db.todos.insertOne({[33mtext[39m:[32m"Increase the numbero[39m [1G[32mf[39m [32mt[39m[32mo[39m[32mo[39m[32ml[39m[32ms[39m [32mi[39m[32mn[39m [32mm[39m[32my[39m [32mt[39m[32mo[39m[32mo[39m[32ml[39m[32mb[39m[32me[39m[32ml[39m[32mt[39m[32m"[39m, d[36mdo[39mdone[2A[1G[0Jthe_database> db.todos.insertOne({[33mtext[39m:[32m"Increase the numberof tools in my toolbelt"[39m, [33mdone[39m: [1G fals[33mfalse[39m})
+{
+  acknowledged: [33mtrue[39m,
+  insertedId: ObjectId("654fb67832553286d449e2c8")
+}
+[1G[0Jthe_database> [15G[1G[0Jthe_database> db.todos.insertOne({[33mtext[39m:[32m"Increase the numberof tools in my toolbelt"[39m, [33mdone[39m: [33mfalse[39m})[9G[3A[1G[0Jthe_database> db.todos.find({})[2G
+[
+  {
+    _id: ObjectId("654fb2c75931cdc1bcf8b80e"),
+    text: [32m'Write code'[39m,
+    done: [33mtrue[39m
+  },
+  {
+    _id: ObjectId("654fb2c75931cdc1bcf8b80f"),
+    text: [32m'Learn about containers'[39m,
+    done: [33mfalse[39m
+  },
+  {
+    _id: ObjectId("654fb67832553286d449e2c8"),
+    text: [32m'Increase the numberof tools in my toolbelt'[39m,
+    done: [33mfalse[39m
+  }
+]
+[1G[0Jthe_database> [15G[1G[0Jthe_database> [15G[1G[0Jthe_database> [15G[1G[0Jthe_database> [15Gexit
+[?2004hroot@8b2b351f479d:/# exit
+[?2004lexit
+[?2004h]0;nemodefish@limsiyong: ~/Repositories/part12-containers-applications[01;32mnemodefish@limsiyong[00m:[01;34m~/Repositories/part12-containers-applications[00m$ exit
+[?2004lexit
+
+Script done on 2023-11-12 01:15:43+08:00 [COMMAND_EXIT_CODE="0"]
