@@ -1,6 +1,8 @@
+# Solution: the comments are the same for 'docker-compose.dev.yml'
 services:
   app:
     image: todo-frontend
+    # Solution: does not include volume, not sure why?
     volumes:
       - ./todo-frontend:/usr/src/app # The path can be relative, so ./ is enough to say "the same location as the docker-compose.yml"
     container_name: todo-frontend
@@ -38,6 +40,7 @@ services:
     ports:
       - 8080:80
     container_name: reverse-proxy
+    # Solution: depends on 'todo-frontend' and 'todo-backend'
     depends_on:
       - app
 

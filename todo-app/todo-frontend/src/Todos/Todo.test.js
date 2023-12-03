@@ -11,17 +11,20 @@ test('renders todo', async  () => {
     done: false
   }
 
+  /* Solution: immediately passes `jest.fn()` to the component's props instead of delcaring a separate 'mockHandler' variable */
   const mockHandler = jest.fn()
 
   render(<Todo todo={todo} onClickDelete={mockHandler} onClickComplete={mockHandler} />)
 
   const todoElement = screen.getByText('Test code')
+  /* Solution: does not check for 'done' statement */
   const doneElement = screen.getByText('This todo is not done')
 
   expect(todoElement).toBeDefined()
   expect(doneElement).toBeDefined()
 })
 
+/* Solution: does not check for clicking buttons */
 test('clicking buttons calls event handlers', async () => {
   const todo = {
     text: 'Test code',

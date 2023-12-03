@@ -1,2 +1,7 @@
 node_modules
 .env
+fs-hello-world
+hello-front
+playground
+mongo_data
+redis_data

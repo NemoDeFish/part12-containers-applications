@@ -17,6 +17,7 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/statistics', async (req, res) => {
+  /* Solution: implements || operator with 0 as default value if 'added_todos' not present. However, I think it is not necessary as I found out that it defaults to 0 by itself */
   const added_todos = Number(await redis.getAsync('added_todos'))
   
   res.send({

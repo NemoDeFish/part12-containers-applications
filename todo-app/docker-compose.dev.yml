@@ -1,11 +1,18 @@
 services:
+  # Solution: uses 'todo-frontend-dev' instead of 'app'
   app:
     image: todo-frontend-dev
+    # Solution: includes build property even though exercises say that it is not required
+    # build:
+    #   context: ./todo-frontend/
+    #   dockerfile: ./dev.Dockerfile
     volumes:
       - ./todo-frontend:/usr/src/app # The path can be relative, so ./ is enough to say "the same location as the docker-compose.yml"
     container_name: todo-frontend-dev
+  # Solution: uses 'mongo-dev' as the service name instead of 'mongo' only
   mongo:
     image: mongo
+    # Solution: ports is not required
     ports:
       - 3456:27017
     environment:
@@ -14,23 +21,36 @@ services:
       MONGO_INITDB_DATABASE: the_database
     volumes:
       - ./todo-backend/mongo/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
+      # Solution: declares a new volume in the current directory ./mongo_data instead of using the one in todo-backend
+      # Solution: uses named volume './mongo_data' instead of local filesystem
       - mongo_data:/data/db
+  # Solution: uses 'redis-dev' as the service name instead of 'redis' only
   redis:
+    # Solution: does not specify 'latest'
     image: redis:latest
+    # Solution: does not specify 'restart' property
     restart: always
+    # Solution: ports is not required
     ports:
       - 6379:6379
     command: ["redis-server", "--appendonly", "yes"]
+    # Solution: declares a new volume in the current directory ./redis_data instead of using the one in todo-backend
     volumes:
       - ./todo-backend/redis_data:/data
+  # Solution: uses 'todo-backend-dev' as the service name instead of 'server' only
   server:
     image: todo-backend-dev
+    # Solution: includes build property even though exercises say that it is not required
+    # build:
+    #   context: ./todo-backend
+    #   dockerfile: dev.Dockerfile
     volumes:
       - ./todo-backend:/usr/src/app
     container_name: todo-backend-dev
     environment:
       - REDIS_URL=redis://redis:6379
       - MONGO_URL=mongodb://the_username:the_password@mongo:27017/the_database
+  # Solution: uses 'nginx-dev' as the service name instead of 'nginx' only
   nginx:
     image: nginx:1.20.1
     volumes:

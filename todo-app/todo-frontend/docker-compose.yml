@@ -1,3 +1,4 @@
+# Solution: This file should be docker-compose.dev.yml
 services:
   app:
     image: todo-frontend-dev
@@ -7,5 +8,6 @@ services:
     volumes:
       - ./:/usr/src/app
     ports:
+      # Solution: uses port 3003 instead of 5001
       - 5001:3000
     container_name: todo-frontend-dev

@@ -10,6 +10,7 @@ services:
       - ./:/usr/src/app
     ports:
       - 3000:3000
+    # Solution: does not assign container_name?
     container_name: todo-backend-dev
     environment:
       - REDIS_URL=redis://redis:6379
@@ -24,9 +25,12 @@ services:
       MONGO_INITDB_DATABASE: the_database
     volumes:
       - ./mongo/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
+      # Solution: uses named volumes './mongo_data' instead of a local filesystem
       - mongo_data:/data/db
   redis:
+    # Solution: only declared 'redis' instead of 'redis:latest'
     image: redis:latest
+    # Solution: does not have 'restart' property
     restart: always
     ports:
       - 6379:6379
